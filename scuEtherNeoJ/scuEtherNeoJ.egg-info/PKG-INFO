@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: scuEtherNeoJ
+Version: 0.0.1
+Summary: An Etherscan web scrapy package which contain Neo4J's connection.
+Home-page: https://github.com/sefx5ever/SCU_EtherNeoJ.git
+Author: Wyne Tan
+Author-email: sefx5ever@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# SCU_EtherNeoJ
+

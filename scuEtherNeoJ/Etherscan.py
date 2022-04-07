@@ -5,7 +5,7 @@ from time import sleep
 from datetime import datetime as dt
 from neo4j import GraphDatabase
 
-class Etherscan:
+class Etherscan(GraphDatabase):
     def __init__(
             self,
             addresses:list|set,
@@ -142,7 +142,7 @@ class Etherscan:
         if sec is not None:
             sleep(sec)
         elif self.extra_info:
-            sleep(10)
+            sleep(20)
         else:
             sleep(1)
 
@@ -234,3 +234,28 @@ class Etherscan:
             return temp
         except Exception as err:
             print(f"【Error/__parse_date_input_data】Date and Input Data parsing failed because of {err}")
+
+    @staticmethod
+    def from_csv_to_uniq_addr(file_substrings:str,file_location:str = None):
+        def get_uniq_addr(df:object):
+            addr_dupe = set()
+
+            def get_addr(addrs):
+                for addr in addrs:
+                    if (addr.startswith("0x")) and (len(addr) == 42):
+                        addr_dupe.add(addr)
+
+            df[['from','to']].apply(get_addr,axis=1)
+            return addr_dupe
+
+        SUBSTRINGS = file_substrings
+        columns = ['txn','method','block','age','value','txn_fee','from','to']
+        df_etherscan = pd.DataFrame(columns=columns)
+            
+        for filename in os.listdir(file_location):
+            if SUBSTRINGS in filename:
+                df_temp = pd.read_csv(file_location+filename,encoding="utf-8")
+                df_etherscan = pd.concat([df_etherscan,df_temp])
+
+        print("Etherscan's data import successfully!")
+        return get_uniq_addr(df_etherscan)

@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+scuEtherNeoJ/scuEtherNeoJ.egg-info/PKG-INFO
+scuEtherNeoJ/scuEtherNeoJ.egg-info/SOURCES.txt
+scuEtherNeoJ/scuEtherNeoJ.egg-info/dependency_links.txt
+scuEtherNeoJ/scuEtherNeoJ.egg-info/requires.txt
+scuEtherNeoJ/scuEtherNeoJ.egg-info/top_level.txt
